@@ -22,10 +22,15 @@ repositories {
 application { mainClass.set("hexlet.code.App") }
 
 dependencies {
+    implementation("org.assertj:assertj-core:3.21.0")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("org.assertj:assertj-core:3.21.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.1")
 }
 
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
