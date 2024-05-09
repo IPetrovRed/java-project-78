@@ -4,7 +4,7 @@ import hexlet.code.Validator;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-class StringSchemaTest {
+class StringTest {
 
     @Test
     void stringIsValid() {
