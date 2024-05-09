@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema {
-    protected final List<Predicate> tests = new ArrayList<>();
+    private final List<Predicate> tests = new ArrayList<>();
 
-    protected final void addTest(Predicate test) {
+    final void addTest(Predicate test) {
         tests.add(test);
     }
 
