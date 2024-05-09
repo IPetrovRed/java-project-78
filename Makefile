@@ -1,12 +1,14 @@
-run-dist:
-	./build/install/app/bin/app -h
+build:
+	make -C app build
 
-install:
-	./gradlew clean install
+clean:
+	make -C app clean
 
-run-install-dist: install run-dist
+test:
+	make -C app test
+
+lint:
+	make -C app lint
 
 report:
-	./gradlew jacocoTestReport
-
-.PHONY: build
+	make -C app report
