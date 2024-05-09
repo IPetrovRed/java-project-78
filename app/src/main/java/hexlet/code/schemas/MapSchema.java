@@ -18,7 +18,8 @@ public final class MapSchema extends BaseSchema {
         addTest(value -> {
             return shape.keySet().stream()
                     .map((key) -> {
-                        return shape.get(key).isValid(((Map) value).get(key)); })
+                        return shape.get(key).isValid(((Map) value).get(key));
+                    })
                     .allMatch((isValid) -> isValid);
         });
         return this;

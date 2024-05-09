@@ -1,8 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.schemas.MapSchema;
-import hexlet.code.schemas.NumberSchema;
-import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,17 +15,17 @@ class ValidatorTest {
 
     @Test
     void string() {
-        Assertions.assertTrue(v.string() instanceof StringSchema);
+        Assertions.assertNotNull(v.string());
     }
 
     @Test
     void number() {
-        Assertions.assertTrue(v.number() instanceof NumberSchema);
+        Assertions.assertNotNull(v.number());
     }
 
     @Test
     void map() {
-        Assertions.assertTrue(v.map() instanceof MapSchema);
+        Assertions.assertNotNull(v.map());
     }
 
     @Test
