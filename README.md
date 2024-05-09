@@ -5,18 +5,9 @@
 [![Java CI](https://github.com/IPetrovRed/java-project-78/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/IPetrovRed/java-project-78/actions/workflows/main.yml)
 
 ### Проект "Валидатор данных"
-ТЕКСТ...
-
-# Возможности:
-* ТЕКСТ
-
-## БЛОК ТЕКСТ
-```
-
+Выполняет задачи по прорверки корректиности вводимых пользователями данных. К примеру, при заполнении различных форм.
 
 ## Пример работы программы
-
-
 
 # Java package
 
