@@ -4,6 +4,7 @@ plugins {
     jacoco
     checkstyle
     id("com.github.ben-manes.versions") version "0.50.0"
+    id ("com.adarshr.test-logger") version "3.1.0"
 }
 
 java {
@@ -31,6 +32,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+testlogger {
+    showStandardStreams = true
 }
 
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
