@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema<T> {
+public class BaseSchema<T> {
     private final List<Predicate<T>> tests = new ArrayList<>();
 
     final void addTest(Predicate<T> test) {
