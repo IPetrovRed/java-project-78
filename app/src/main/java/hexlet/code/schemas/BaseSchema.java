@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class BaseSchema<T> {
-    private final List<Predicate<T>> tests = new ArrayList<>();
+public class BaseSchema {
+    private List<Predicate<Object>> predicates = new ArrayList<>();
 
-    final void addTest(Predicate<T> test) {
-        tests.add(test);
+    public final List<Predicate<Object>> getPredicates() {
+        return predicates;
     }
 
-    public final boolean isValid(T value) {
-        return tests.stream().allMatch(predicate -> predicate.test(value));
+    public final boolean isValid(Object obj) {
+        return predicates.stream().allMatch(v -> v.test(obj));
     }
 }
-

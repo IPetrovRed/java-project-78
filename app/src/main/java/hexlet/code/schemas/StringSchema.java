@@ -1,19 +1,18 @@
 package hexlet.code.schemas;
 
 public final class StringSchema extends BaseSchema {
-
     public StringSchema required() {
-        addTest(value -> value instanceof String && !((String) value).isEmpty());
+        getPredicates().add(v -> v instanceof String && !((String) v).isEmpty());
         return this;
     }
 
-    public StringSchema minLength(Integer minLength) {
-        addTest(value -> ((String) value).length() >= minLength);
+    public StringSchema minLength(int lenght) {
+        getPredicates().add(v -> v.toString().length() >= lenght);
         return this;
     }
 
-    public StringSchema contains(String contString) {
-        addTest(value -> ((String) value).contains(contString));
+    public StringSchema contains(String str) {
+        getPredicates().add(v -> v.toString().contains(str));
         return this;
     }
 }
