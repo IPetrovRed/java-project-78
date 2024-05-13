@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.schemas.MapSchema;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,10 +25,5 @@ class ValidatorTest {
     @Test
     void map() {
         Assertions.assertNotNull(v.map());
-    }
-
-    @Test
-    void validateMapSchemaMethod() {
-        MapSchema mapSchema = new MapSchema();
     }
 }
