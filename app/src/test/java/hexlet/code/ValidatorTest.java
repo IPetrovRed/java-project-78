@@ -1,29 +1,51 @@
 package hexlet.code;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import hexlet.code.schemas.BaseSchema;
+import hexlet.code.schemas.MapSchema;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
 class ValidatorTest {
-    private Validator v;
-
-    @BeforeEach
-    void setup() {
-        v = new Validator();
-    }
 
     @Test
-    void string() {
-        Assertions.assertNotNull(v.string());
-    }
+    void testNestedValidation() {
+        Validator v = new Validator();
+        MapSchema schema = v.map();
+        schema.required();
+        Map<String, BaseSchema> schemas = new HashMap<>();
 
-    @Test
-    void number() {
-        Assertions.assertNotNull(v.number());
-    }
+        schemas.put("name", v.string().required());
+        schemas.put("age", v.number().positive());
+        schema.shape(schemas);
 
-    @Test
-    void map() {
-        Assertions.assertNotNull(v.map());
+        Map<String, Object> human1 = new HashMap<>();
+        human1.put("name", "Kolya");
+        human1.put("age", 100);
+        assertThat(schema.isValid(human1)).isTrue();
+
+        Map<String, Object> human2 = new HashMap<>();
+        human2.put("name", "Maya");
+        human2.put("age", null);
+        assertThat(schema.isValid(human2)).isTrue();
+
+        Map<String, Object> human3 = new HashMap<>();
+        human3.put("name", "");
+        human3.put("age", null);
+        assertThat(schema.isValid(human3)).isFalse();
+
+        Map<String, Object> human4 = new HashMap<>();
+        human4.put("name", "Valya");
+        human4.put("age", -5);
+        assertThat(schema.isValid(human4)).isFalse();
+
+        schema.sizeof(2);
+        assertThat(schema.isValid(human4)).isFalse();
+
+        schema.required();
+        assertThat(schema.isValid(human4)).isFalse();
     }
 }
