@@ -6,8 +6,8 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 public abstract class BaseSchema<T> {
-    boolean required;
-    Map<String, Predicate<T>> checks = new LinkedHashMap<>();
+    protected boolean required;
+    protected Map<String, Predicate<T>> checks = new LinkedHashMap<>();
 
     public void addCheck(String checkName, Predicate<T> testCheck) {
         checks.put(checkName, testCheck);
