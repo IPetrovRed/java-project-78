@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ValidatorTest {
 
     @Test
-    void testNestedValidation() {
+    void validationTest() {
         Validator v = new Validator();
         MapSchema schema = v.map();
         schema.required();
@@ -38,7 +38,7 @@ class ValidatorTest {
         assertThat(schema.isValid(human3)).isFalse();
 
         Map<String, Object> human4 = new HashMap<>();
-        human4.put("name", "Valya");
+        human4.put("name", "Kirsten");
         human4.put("age", -5);
         assertThat(schema.isValid(human4)).isFalse();
 
