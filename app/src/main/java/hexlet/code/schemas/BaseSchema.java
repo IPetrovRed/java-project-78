@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-public class BaseSchema<T> {
+public abstract class BaseSchema<T> {
     boolean required;
     Map<String, Predicate<T>> checks = new LinkedHashMap<>();
 
