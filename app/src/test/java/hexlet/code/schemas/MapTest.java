@@ -1,4 +1,5 @@
 package hexlet.code.schemas;
+
 import hexlet.code.Validator;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MapTest {
 
     @Test
-    void testIsValidMapSchema() {
+    void testMapSchema() {
         Validator v1 = new Validator();
         MapSchema schema1 = v1.map();
 
@@ -31,9 +32,9 @@ public class MapTest {
 
         Validator v2 = new Validator();
         MapSchema schema2 = v2.map();
+        schema2.required().sizeof(3);
 
-        assertThat(schema2.isValid(null)).isTrue();
-        schema2.sizeof(3);
-        assertThat(schema2.isValid(null)).isTrue();
+        assertThat(schema2.isValid(null)).isFalse();
+        assertThat(schema2.isValid(new HashMap<>())).isFalse();
     }
 }
