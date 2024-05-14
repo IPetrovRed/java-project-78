@@ -1,10 +1,12 @@
 package hexlet.code.schemas;
 
+import java.util.Objects;
+
 public final class StringSchema extends BaseSchema<String> {
 
     public StringSchema() {
-        addCheck("isAllowedAndEmpty", s -> (s != null) && (!required || !s.equals("")));
-        addCheck("isString", s -> s instanceof String);
+        addCheck("isAllowedAndEmpty", s -> (s != null) && (!required || !s.isEmpty()));
+        addCheck("isString", Objects::nonNull);
     }
 
     public StringSchema minLength(int lengthOfString) {
