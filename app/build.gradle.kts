@@ -3,6 +3,7 @@ plugins {
     application
     jacoco
     checkstyle
+    id("io.freefair.lombok") version "8.4"
     id("com.github.ben-manes.versions") version "0.50.0"
     id ("com.adarshr.test-logger") version "3.1.0"
 }

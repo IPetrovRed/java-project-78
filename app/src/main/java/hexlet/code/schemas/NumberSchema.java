@@ -1,18 +1,22 @@
 package hexlet.code.schemas;
 
-public final class NumberSchema extends BaseSchema {
-    public NumberSchema required() {
-        getPredicates().add(v -> v instanceof Integer);
-        return this;
-    }
+public final class NumberSchema extends BaseSchema<Object> {
 
+    public NumberSchema() {
+        addCheck("isInteger", i -> i instanceof Integer);
+    }
     public NumberSchema positive() {
-        getPredicates().add(v -> v == null || v instanceof Integer && (Integer) v > 0);
+        addCheck("positive", i -> (Integer) i > 0);
         return this;
     }
 
-    public NumberSchema range(int from, int to) {
-        getPredicates().add(v -> (Integer) v >= from && (Integer) v <= to);
+    public NumberSchema range(int lowBorder, int highBorder) {
+        addCheck("range", i -> ((Integer) i >= lowBorder && (Integer) i <= highBorder));
+        return this;
+    }
+
+    public NumberSchema required() {
+        required = true;
         return this;
     }
 }
