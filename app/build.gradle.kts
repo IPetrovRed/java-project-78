@@ -3,7 +3,6 @@ plugins {
     application
     jacoco
     checkstyle
-    id("io.freefair.lombok") version "8.4"
     id("com.github.ben-manes.versions") version "0.50.0"
     id ("com.adarshr.test-logger") version "3.1.0"
 }
@@ -25,7 +24,6 @@ application { mainClass.set("hexlet.code.App") }
 
 dependencies {
     implementation("org.assertj:assertj-core:3.21.0")
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("org.assertj:assertj-core:3.21.0")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.1")
