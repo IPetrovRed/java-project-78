@@ -2,11 +2,12 @@ package hexlet.code.schemas;
 
 import java.util.Map;
 
-public final class MapSchema extends BaseSchema<Map<?, ?>> {
+public final class MapSchema<T> extends BaseSchema<Map<String, T>> {
 
-    public MapSchema shape(Map<String, BaseSchema> schemas) {
-        addCheck("name", s -> schemas.get("name").isValid(((Map) s).get("name")));
-        addCheck("age", s -> schemas.get("age").isValid(((Map) s).get("age")));
+    public MapSchema shape(Map<String, BaseSchema<T>> schemas) {
+        schemas.forEach((key, schema) ->
+                addCheck(key, s -> schema.isValid(s.get(key)))
+        );
         return this;
     }
 
