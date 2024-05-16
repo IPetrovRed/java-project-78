@@ -23,7 +23,7 @@ class ValidatorTest {
         schema.shape(schemas);
 
         Map<String, Object> human1 = new HashMap<>();
-        human1.put("name", "Kolya");
+        human1.put("name", "Volya");
         human1.put("age", 100);
         assertThat(schema.isValid(human1)).isTrue();
 
@@ -45,7 +45,7 @@ class ValidatorTest {
         schema.sizeof(2);
         assertThat(schema.isValid(human4)).isFalse();
 
-        schema.required(); // This line was missing in the original code
+        schema.required();
         assertThat(schema.isValid(human4)).isFalse();
     }
 }
