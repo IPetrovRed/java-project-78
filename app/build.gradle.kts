@@ -1,6 +1,5 @@
 plugins {
     id("java")
-    application
     jacoco
     checkstyle
     id("com.github.ben-manes.versions") version "0.50.0"
@@ -19,8 +18,6 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
 }
-
-application { mainClass.set("hexlet.code.App") }
 
 dependencies {
     implementation("org.assertj:assertj-core:3.21.0")
