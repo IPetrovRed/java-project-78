@@ -1,6 +1,6 @@
 package hexlet.code.schemas;
 
-public final class NumberSchema extends BaseSchema<Object> {
+public final class NumberSchema extends BaseSchema<Integer> {
 
     public NumberSchema() {
         addCheck("isInteger", i -> i instanceof Integer);

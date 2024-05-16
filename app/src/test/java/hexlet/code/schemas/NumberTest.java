@@ -18,7 +18,7 @@ class NumberTest {
 
         schema.required();
         assertThat(schema.isValid(null)).isFalse();
-        assertThat(schema.isValid("5")).isFalse();
+        assertThat(schema.isValid(5)).isTrue();
         assertThat(schema.isValid(-10)).isFalse();
         assertThat(schema.isValid(0)).isFalse();
         assertThat(schema.isValid(10)).isTrue();
